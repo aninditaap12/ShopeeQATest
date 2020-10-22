@@ -1,13 +1,6 @@
-wait = Selenium::WebDriver::Wait.new(timeout: 10)
+# Global steps are defined in this file
 
-# Change value of username and password in objects.rb
-
-# Step definitions to see list of gists
-
-# Given user already logged in
-# When user clicks Account menu
-# Then user select Your Gists menu
-
-And ("list of gist is displayed") do 
-    wait.until { @driver.find_element(:xpath, $all_gists).displayed? }
+Given ("I am on gist url") do 
+    @driver.navigate.to $base_url
+    expect(@driver.current_url).to include('https://gist.github.com')
 end
